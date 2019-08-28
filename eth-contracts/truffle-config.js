@@ -19,10 +19,10 @@
  */
 
 const HDWalletProvider = require('truffle-hdwallet-provider');
-const infuraKey = "rinkeby.infura.io/v3/62a6345451aa47a79076f47dc79a8ee3";
+const infuraKey = "rinkeby.infura.io/v3/"; // removed key
 
 // const fs = require('fs');
-const mnemonic = "waste connect extend interest proof jewel door erase barely door column museum";
+const mnemonic = "";
 
 module.exports = {
   /**
@@ -34,7 +34,7 @@ module.exports = {
    *
    * $ truffle test --network <network-name>
    */
-
+  
   networks: {
     // Useful for testing. The `development` name is special - truffle uses it by default
     // if it's defined here and no other network is specified at the command line.
