@@ -4,6 +4,7 @@ The capstone will build upon the knowledge you have gained in the course in orde
 
 # Write up Deliverables
 Contract Addresses :
+
 [Verifier Contract on Etherscan ](https://rinkeby.etherscan.io/address/0xe1C576b5B9E5Dfd89030ad94A29540c7cC7e9D5b)
 
 [SolnSquareVerifier Contract on Etherscan ](https://rinkeby.etherscan.io/address/0x707951EaA2A635690eb5c818a3F6660cB359aAE2)
