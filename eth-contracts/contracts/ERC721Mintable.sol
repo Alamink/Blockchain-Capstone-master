@@ -106,7 +106,7 @@ contract ERC165 {
      * @dev internal method for registering an interface
      */
     function _registerInterface(bytes4 interfaceId) internal {
-        require(interfaceId != 0xffffffff,"error message provided by ...");
+        require(interfaceId != 0xffffffff,"failing @ _registerInterface");
         _supportedInterfaces[interfaceId] = true;
     }
 }
@@ -187,7 +187,7 @@ contract ERC721 is Pausable, ERC165 {
      * @param approved representing the status of the approval to be set
      */
     function setApprovalForAll(address to, bool approved) public {
-        require(to != msg.sender,"error message provided by ...");
+        require(to != msg.sender,"failing @ setApprovalForAll");
         _operatorApprovals[msg.sender][to] = approved;
         emit ApprovalForAll(msg.sender, to, approved);
     }
@@ -203,7 +203,7 @@ contract ERC721 is Pausable, ERC165 {
     }
 
     function transferFrom(address from, address to, uint256 tokenId) public {
-        require(_isApprovedOrOwner(msg.sender, tokenId), "error message provided by ...");
+        require(_isApprovedOrOwner(msg.sender, tokenId), "failing @ transferFrom");
 
         _transferFrom(from, to, tokenId);
     }
@@ -214,7 +214,7 @@ contract ERC721 is Pausable, ERC165 {
 
     function safeTransferFrom(address from, address to, uint256 tokenId, bytes memory _data) public {
         transferFrom(from, to, tokenId);
-        require(_checkOnERC721Received(from, to, tokenId, _data),"error message provided by ...");
+        require(_checkOnERC721Received(from, to, tokenId, _data),"failing @ safeTransferFrom with string");
     }
 
     /**
@@ -342,7 +342,7 @@ contract ERC721Enumerable is ERC165, ERC721 {
      * @return uint256 token ID at the given index of the tokens list owned by the requested address
      */
     function tokenOfOwnerByIndex(address owner, uint256 index) public view returns (uint256) {
-        require(index < balanceOf(owner),"");
+        require(index < balanceOf(owner),"failing @ tokenOfOwnerByIndex");
         return _ownedTokens[owner][index];
     }
 
@@ -361,7 +361,7 @@ contract ERC721Enumerable is ERC165, ERC721 {
      * @return uint256 token ID at the given index of the tokens list
      */
     function tokenByIndex(uint256 index) public view returns (uint256) {
-        require(index < totalSupply(),"");
+        require(index < totalSupply(),"failing @ tokenByIndex");
         return _allTokens[index];
     }
 
@@ -538,7 +538,7 @@ contract ERC721Metadata is ERC721Enumerable, usingOraclize {
 
 //  TODO's: Create CustomERC721Token contract that inherits from the ERC721Metadata contract. You can name this contract as you please
 
-contract AlaminERC721Token is ERC721Metadata("Alamin Almatrudi","AK","https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/")
+contract AlaminERC721Token is ERC721Metadata("Alamin Almatrudi","AKA","https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/")
 {
 //  1) Pass in appropriate values for the inherited ERC721Metadata contract
 //      - make the base token uri: https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/
