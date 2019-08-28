@@ -17,6 +17,7 @@ OpenSea MarketPlace Storefront link's :
 
 # How to test code: 
 Make sure to run Ganache on port: 7545 
+
 Clone this repostiory:
 ```
 git clone https://github.com/Alamink/Blockchain-Capstone-master.git
